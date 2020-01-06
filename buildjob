@@ -1,0 +1,9 @@
+import jenkins, sys
+jenkins_server = jenkins.Jenkins('url', username='',password='')
+def build_job(name,parameters1):
+        next_build_number = jenkins_server.get_job_info(name)['nextBuildNumber']
+        jenkins_server.build_job(name,parameters=parameters1)
+        
+if __name__ == "__main__":
+    obj=("JOBNAME")
+    build_job(*obj)
